@@ -19,3 +19,14 @@ No more copying and pasting the embed code of your YouTube videos into a Text/Ht
 4. Once the Module has been installed, you should see the new module when you want to insert it into a page.
 
 ##Setting up the DnnC YouTubeLibrary
+
+To make this module work you will need to create an Api key in the Google Developer Console. To do this follow the steps below:
+
+1. You need a Google Account to access the Google Developers Console, request an API key, and register your application. Google account link : https://www.google.com/accounts/NewAccount
+2. Create a project in the Google Developers Console and obtain authorization credentials so your application can submit API requests.
+Goole Developers Console : https://console.developers.google.com
+Authorization Credentials : https://console.developers.google.com/youtube/registering_an_application
+3. After creating your project, make sure the YouTube Data API is one of the services that your application is registered to use:
+- Go to the Developers Console and select the project that you just registered.
+- In the sidebar on the left, expand APIs & auth. Next, click APIs. In the list of APIs, make sure the status is ON for the YouTube Data API v3.
+
