@@ -1,0 +1,27 @@
+.DnnC_list-panel {
+    background:#fff;
+    padding:20px;
+    -webkit-border-radius: 10px; 
+    -moz-border-radius: 10px; 
+    border-radius: 10px; 
+    border:solid 1px #ccc;
+}
+
+.Dnnc_TokensPanel {
+    margin-top:3px;
+    border:solid 1px #666666;
+    padding:10px;
+    background:#ffffff;
+    color:#333333;
+    font-size:14px;
+}
+.Dnnc_TokensPanel ul {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+.Dnnc_TokensPanel > ul > li {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 5px;
+}

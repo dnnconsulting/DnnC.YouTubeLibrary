@@ -1,0 +1,38 @@
+﻿<h3>DnnC YouTubeLibrary</h3>
+<p class="Contributor">
+	G Barlow <br />
+	<a href="mailto:info@dnnconsulting.nl">info@dnnconsulting.nl</a><br />
+	<a href=http://www.dnnconsulting.nl>http://www.dnnconsulting.nl</a><br />
+</p>
+<hr/>
+<div class="License">
+	<h3>About the DnnC YouTubeLibrary</h3>
+	<p class="Owner">
+		<b>Version 02.00.00</b><br /><br />
+	</p>
+	<p>
+		The DnnC YouTube Library makes it a breeze to build a library of YouTube videos for you DnnCMS website.
+		<br/><br/>
+		Fully template you can customize the look and feel of the module to fit with your own website. The template 
+		editing system uses CodeMirror for code tag coloring making it easy to edit the templates and Css.
+		<br/><br/>
+		The DnnC YouTube Library makes it easy to manage your videos with ‘drag and drop’ functionality to easily change 
+		the display order of you videos.
+		<br/><br/>
+		Adding a video to your library is also very easy, just copy the YouTube video ID, paste it into the input box 
+		and click ‘Retrieve video data’ then the module does the rest, by inporting al the video data including the 
+		title, description, even a thumb of the video for you. When the data is imported you can then change the 
+		information about the video easily and save!
+		<br/><br/>
+		<strong>No more copying and pasting the embed code of your YouTube videos into a Text/Html module!</strong>
+	</p>
+	
+	<h4>Bug Fixes</h4>
+	<ul>
+			<li>Updated the module to use the youtube api v3, v2 was made obsolate!</li>
+			<li>Styled the editable video list with standard Dnn icons and add a white background panel for clarity.</li>
+			<li>Made the videoId textbox bigger.</li>
+			<li>Creaed a better error message panel.</li>
+	</ul>
+	
+</div>
