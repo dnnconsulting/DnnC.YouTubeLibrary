@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{279C5C96-5031-407A-919C-EF50FD06454D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DnnC.Modules.YouTubeLibrary</RootNamespace>
+    <AssemblyName>DnnC.Modules.YouTubeLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>DnnC.Modules.YouTubeLibrary.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>DnnC.Modules.YouTubeLibrary.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=7.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\ItemController.vb" />
+    <Compile Include="Components\Item.vb" />
+    <Compile Include="Components\SharedFunctions.vb" />
+    <Compile Include="Components\VideoTemplate.vb" />
+    <Compile Include="Settings.ascx.designer.vb">
+      <DependentUpon>Settings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.ascx.vb">
+      <DependentUpon>Settings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\DnnC_YouTubeLibrarySettingsBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit.ascx.designer.vb">
+      <DependentUpon>Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit.ascx.vb">
+      <DependentUpon>Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Components\DnnC_YouTubeLibraryModuleBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TemplateManager.ascx.designer.vb">
+      <DependentUpon>TemplateManager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateManager.ascx.vb">
+      <DependentUpon>TemplateManager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View.ascx.designer.vb">
+      <DependentUpon>View.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View.ascx.vb">
+      <DependentUpon>View.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\prettyPhoto\images\dark_rounded\btnNext.png" />
+    <Content Include="assets\prettyPhoto\images\dark_rounded\btnPrevious.png" />
+    <Content Include="assets\prettyPhoto\images\dark_rounded\contentPattern.png" />
+    <Content Include="assets\prettyPhoto\images\dark_rounded\default_thumbnail.gif" />
+    <Content Include="assets\prettyPhoto\images\dark_rounded\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\dark_rounded\sprite.png" />
+    <Content Include="assets\prettyPhoto\images\dark_square\btnNext.png" />
+    <Content Include="assets\prettyPhoto\images\dark_square\btnPrevious.png" />
+    <Content Include="assets\prettyPhoto\images\dark_square\contentPattern.png" />
+    <Content Include="assets\prettyPhoto\images\dark_square\default_thumbnail.gif" />
+    <Content Include="assets\prettyPhoto\images\dark_square\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\dark_square\sprite.png" />
+    <Content Include="assets\prettyPhoto\images\default\default_thumb.png" />
+    <Content Include="assets\prettyPhoto\images\default\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\default\sprite.png" />
+    <Content Include="assets\prettyPhoto\images\default\sprite_next.png" />
+    <Content Include="assets\prettyPhoto\images\default\sprite_prev.png" />
+    <Content Include="assets\prettyPhoto\images\default\sprite_x.png" />
+    <Content Include="assets\prettyPhoto\images\default\sprite_y.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\btnNext.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\btnPrevious.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\contentPatternBottom.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\contentPatternLeft.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\contentPatternRight.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\contentPatternTop.png" />
+    <Content Include="assets\prettyPhoto\images\facebook\default_thumbnail.gif" />
+    <Content Include="assets\prettyPhoto\images\facebook\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\facebook\sprite.png" />
+    <Content Include="assets\prettyPhoto\images\light_rounded\btnNext.png" />
+    <Content Include="assets\prettyPhoto\images\light_rounded\btnPrevious.png" />
+    <Content Include="assets\prettyPhoto\images\light_rounded\default_thumbnail.gif" />
+    <Content Include="assets\prettyPhoto\images\light_rounded\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\light_rounded\sprite.png" />
+    <Content Include="assets\prettyPhoto\images\light_square\btnNext.png" />
+    <Content Include="assets\prettyPhoto\images\light_square\btnPrevious.png" />
+    <Content Include="assets\prettyPhoto\images\light_square\default_thumbnail.gif" />
+    <Content Include="assets\prettyPhoto\images\light_square\loader.gif" />
+    <Content Include="assets\prettyPhoto\images\light_square\sprite.png" />
+    <Content Include="assets\prettyPhoto\jquery.prettyPhoto.js" />
+    <Content Include="assets\prettyPhoto\prettyPhoto.css" />
+    <Content Include="assets\codemirror-4.6\addon\comment\comment.js" />
+    <Content Include="assets\codemirror-4.6\addon\comment\continuecomment.js" />
+    <Content Include="assets\codemirror-4.6\addon\dialog\dialog.css" />
+    <Content Include="assets\codemirror-4.6\addon\dialog\dialog.js" />
+    <Content Include="assets\codemirror-4.6\addon\display\fullscreen.css" />
+    <Content Include="assets\codemirror-4.6\addon\display\fullscreen.js" />
+    <Content Include="assets\codemirror-4.6\addon\display\placeholder.js" />
+    <Content Include="assets\codemirror-4.6\addon\display\rulers.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\closebrackets.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\closetag.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\continuelist.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\matchbrackets.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\matchtags.js" />
+    <Content Include="assets\codemirror-4.6\addon\edit\trailingspace.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\brace-fold.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\comment-fold.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\foldcode.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\foldgutter.css" />
+    <Content Include="assets\codemirror-4.6\addon\fold\foldgutter.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\indent-fold.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\markdown-fold.js" />
+    <Content Include="assets\codemirror-4.6\addon\fold\xml-fold.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\anyword-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\css-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\html-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\javascript-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\python-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\show-hint.css" />
+    <Content Include="assets\codemirror-4.6\addon\hint\show-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\sql-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\hint\xml-hint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\coffeescript-lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\css-lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\javascript-lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\json-lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\lint.css" />
+    <Content Include="assets\codemirror-4.6\addon\lint\lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\lint\yaml-lint.js" />
+    <Content Include="assets\codemirror-4.6\addon\merge\merge.css" />
+    <Content Include="assets\codemirror-4.6\addon\merge\merge.js" />
+    <Content Include="assets\codemirror-4.6\addon\mode\loadmode.js" />
+    <Content Include="assets\codemirror-4.6\addon\mode\multiplex.js" />
+    <Content Include="assets\codemirror-4.6\addon\mode\multiplex_test.js" />
+    <Content Include="assets\codemirror-4.6\addon\mode\overlay.js" />
+    <Content Include="assets\codemirror-4.6\addon\runmode\colorize.js" />
+    <Content Include="assets\codemirror-4.6\addon\runmode\runmode-standalone.js" />
+    <Content Include="assets\codemirror-4.6\addon\runmode\runmode.js" />
+    <Content Include="assets\codemirror-4.6\addon\runmode\runmode.node.js" />
+    <Content Include="assets\codemirror-4.6\addon\scroll\scrollpastend.js" />
+    <Content Include="assets\codemirror-4.6\addon\search\match-highlighter.js" />
+    <Content Include="assets\codemirror-4.6\addon\search\search.js" />
+    <Content Include="assets\codemirror-4.6\addon\search\searchcursor.js" />
+    <Content Include="assets\codemirror-4.6\addon\selection\active-line.js" />
+    <Content Include="assets\codemirror-4.6\addon\selection\mark-selection.js" />
+    <Content Include="assets\codemirror-4.6\addon\tern\tern.css" />
+    <Content Include="assets\codemirror-4.6\addon\tern\tern.js" />
+    <Content Include="assets\codemirror-4.6\addon\tern\worker.js" />
+    <Content Include="assets\codemirror-4.6\addon\wrap\hardwrap.js" />
+    <Content Include="assets\codemirror-4.6\demo\activeline.html" />
+    <Content Include="assets\codemirror-4.6\demo\anywordhint.html" />
+    <Content Include="assets\codemirror-4.6\demo\bidi.html" />
+    <Content Include="assets\codemirror-4.6\demo\btree.html" />
+    <Content Include="assets\codemirror-4.6\demo\buffers.html" />
+    <Content Include="assets\codemirror-4.6\demo\changemode.html" />
+    <Content Include="assets\codemirror-4.6\demo\closebrackets.html" />
+    <Content Include="assets\codemirror-4.6\demo\closetag.html" />
+    <Content Include="assets\codemirror-4.6\demo\complete.html" />
+    <Content Include="assets\codemirror-4.6\demo\emacs.html" />
+    <Content Include="assets\codemirror-4.6\demo\folding.html" />
+    <Content Include="assets\codemirror-4.6\demo\fullscreen.html" />
+    <Content Include="assets\codemirror-4.6\demo\hardwrap.html" />
+    <Content Include="assets\codemirror-4.6\demo\html5complete.html" />
+    <Content Include="assets\codemirror-4.6\demo\indentwrap.html" />
+    <Content Include="assets\codemirror-4.6\demo\lint.html" />
+    <Content Include="assets\codemirror-4.6\demo\loadmode.html" />
+    <Content Include="assets\codemirror-4.6\demo\marker.html" />
+    <Content Include="assets\codemirror-4.6\demo\markselection.html" />
+    <Content Include="assets\codemirror-4.6\demo\matchhighlighter.html" />
+    <Content Include="assets\codemirror-4.6\demo\matchtags.html" />
+    <Content Include="assets\codemirror-4.6\demo\merge.html" />
+    <Content Include="assets\codemirror-4.6\demo\multiplex.html" />
+    <Content Include="assets\codemirror-4.6\demo\mustache.html" />
+    <Content Include="assets\codemirror-4.6\demo\placeholder.html" />
+    <Content Include="assets\codemirror-4.6\demo\preview.html" />
+    <Content Include="assets\codemirror-4.6\demo\requirejs.html" />
+    <Content Include="assets\codemirror-4.6\demo\resize.html" />
+    <Content Include="assets\codemirror-4.6\demo\rulers.html" />
+    <Content Include="assets\codemirror-4.6\demo\runmode.html" />
+    <Content Include="assets\codemirror-4.6\demo\search.html" />
+    <Content Include="assets\codemirror-4.6\demo\spanaffectswrapping_shim.html" />
+    <Content Include="assets\codemirror-4.6\demo\sublime.html" />
+    <Content Include="assets\codemirror-4.6\demo\tern.html" />
+    <Content Include="assets\codemirror-4.6\demo\theme.html" />
+    <Content Include="assets\codemirror-4.6\demo\trailingspace.html" />
+    <Content Include="assets\codemirror-4.6\demo\variableheight.html" />
+    <Content Include="assets\codemirror-4.6\demo\vim.html" />
+    <Content Include="assets\codemirror-4.6\demo\visibletabs.html" />
+    <Content Include="assets\codemirror-4.6\demo\widget.html" />
+    <Content Include="assets\codemirror-4.6\demo\xmlcomplete.html" />
+    <Content Include="assets\codemirror-4.6\doc\activebookmark.js" />
+    <Content Include="assets\codemirror-4.6\doc\compress.html" />
+    <Content Include="assets\codemirror-4.6\doc\docs.css" />
+    <Content Include="assets\codemirror-4.6\doc\internals.html" />
+    <Content Include="assets\codemirror-4.6\doc\logo.png" />
+    <Content Include="assets\codemirror-4.6\doc\logo.svg" />
+    <Content Include="assets\codemirror-4.6\doc\manual.html" />
+    <Content Include="assets\codemirror-4.6\doc\realworld.html" />
+    <Content Include="assets\codemirror-4.6\doc\releases.html" />
+    <Content Include="assets\codemirror-4.6\doc\reporting.html" />
+    <Content Include="assets\codemirror-4.6\doc\upgrade_v2.2.html" />
+    <Content Include="assets\codemirror-4.6\doc\upgrade_v3.html" />
+    <Content Include="assets\codemirror-4.6\doc\upgrade_v4.html" />
+    <Content Include="assets\codemirror-4.6\index.html" />
+    <Content Include="assets\codemirror-4.6\keymap\emacs.js" />
+    <Content Include="assets\codemirror-4.6\keymap\sublime.js" />
+    <Content Include="assets\codemirror-4.6\keymap\vim.js" />
+    <Content Include="assets\codemirror-4.6\lib\codemirror.css" />
+    <Content Include="assets\codemirror-4.6\lib\codemirror.js" />
+    <Content Include="assets\codemirror-4.6\mode\apl\apl.js" />
+    <Content Include="assets\codemirror-4.6\mode\apl\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\asterisk\asterisk.js" />
+    <Content Include="assets\codemirror-4.6\mode\asterisk\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\clike\clike.js" />
+    <Content Include="assets\codemirror-4.6\mode\clike\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\clike\scala.html" />
+    <Content Include="assets\codemirror-4.6\mode\clojure\clojure.js" />
+    <Content Include="assets\codemirror-4.6\mode\clojure\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\cobol\cobol.js" />
+    <Content Include="assets\codemirror-4.6\mode\cobol\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\coffeescript\coffeescript.js" />
+    <Content Include="assets\codemirror-4.6\mode\coffeescript\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\commonlisp\commonlisp.js" />
+    <Content Include="assets\codemirror-4.6\mode\commonlisp\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\css\css.js" />
+    <Content Include="assets\codemirror-4.6\mode\css\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\css\less.html" />
+    <Content Include="assets\codemirror-4.6\mode\css\less_test.js" />
+    <Content Include="assets\codemirror-4.6\mode\css\scss.html" />
+    <Content Include="assets\codemirror-4.6\mode\css\scss_test.js" />
+    <Content Include="assets\codemirror-4.6\mode\css\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\cypher\cypher.js" />
+    <Content Include="assets\codemirror-4.6\mode\cypher\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\diff\diff.js" />
+    <Content Include="assets\codemirror-4.6\mode\diff\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\django\django.js" />
+    <Content Include="assets\codemirror-4.6\mode\django\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\dtd\dtd.js" />
+    <Content Include="assets\codemirror-4.6\mode\dtd\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\dylan\dylan.js" />
+    <Content Include="assets\codemirror-4.6\mode\dylan\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\d\d.js" />
+    <Content Include="assets\codemirror-4.6\mode\d\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\ecl\ecl.js" />
+    <Content Include="assets\codemirror-4.6\mode\ecl\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\eiffel\eiffel.js" />
+    <Content Include="assets\codemirror-4.6\mode\eiffel\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\erlang\erlang.js" />
+    <Content Include="assets\codemirror-4.6\mode\erlang\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\fortran\fortran.js" />
+    <Content Include="assets\codemirror-4.6\mode\fortran\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\gas\gas.js" />
+    <Content Include="assets\codemirror-4.6\mode\gas\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\gfm\gfm.js" />
+    <Content Include="assets\codemirror-4.6\mode\gfm\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\gfm\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\gherkin\gherkin.js" />
+    <Content Include="assets\codemirror-4.6\mode\gherkin\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\go\go.js" />
+    <Content Include="assets\codemirror-4.6\mode\go\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\groovy\groovy.js" />
+    <Content Include="assets\codemirror-4.6\mode\groovy\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\haml\haml.js" />
+    <Content Include="assets\codemirror-4.6\mode\haml\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\haml\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\haskell\haskell.js" />
+    <Content Include="assets\codemirror-4.6\mode\haskell\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\haxe\haxe.js" />
+    <Content Include="assets\codemirror-4.6\mode\haxe\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="assets\codemirror-4.6\mode\htmlembedded\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="assets\codemirror-4.6\mode\htmlmixed\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\http\http.js" />
+    <Content Include="assets\codemirror-4.6\mode\http\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\jade\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\jade\jade.js" />
+    <Content Include="assets\codemirror-4.6\mode\javascript\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\javascript\javascript.js" />
+    <Content Include="assets\codemirror-4.6\mode\javascript\json-ld.html" />
+    <Content Include="assets\codemirror-4.6\mode\javascript\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\javascript\typescript.html" />
+    <Content Include="assets\codemirror-4.6\mode\jinja2\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\jinja2\jinja2.js" />
+    <Content Include="assets\codemirror-4.6\mode\julia\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\julia\julia.js" />
+    <Content Include="assets\codemirror-4.6\mode\kotlin\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\kotlin\kotlin.js" />
+    <Content Include="assets\codemirror-4.6\mode\livescript\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\livescript\livescript.js" />
+    <Content Include="assets\codemirror-4.6\mode\lua\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\lua\lua.js" />
+    <Content Include="assets\codemirror-4.6\mode\markdown\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\markdown\markdown.js" />
+    <Content Include="assets\codemirror-4.6\mode\markdown\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\meta.js" />
+    <Content Include="assets\codemirror-4.6\mode\mirc\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\mirc\mirc.js" />
+    <Content Include="assets\codemirror-4.6\mode\mllike\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\mllike\mllike.js" />
+    <Content Include="assets\codemirror-4.6\mode\modelica\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\modelica\modelica.js" />
+    <Content Include="assets\codemirror-4.6\mode\nginx\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\nginx\nginx.js" />
+    <Content Include="assets\codemirror-4.6\mode\ntriples\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\ntriples\ntriples.js" />
+    <Content Include="assets\codemirror-4.6\mode\octave\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\octave\octave.js" />
+    <Content Include="assets\codemirror-4.6\mode\pascal\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\pascal\pascal.js" />
+    <Content Include="assets\codemirror-4.6\mode\pegjs\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\pegjs\pegjs.js" />
+    <Content Include="assets\codemirror-4.6\mode\perl\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\perl\perl.js" />
+    <Content Include="assets\codemirror-4.6\mode\php\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\php\php.js" />
+    <Content Include="assets\codemirror-4.6\mode\php\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\pig\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\pig\pig.js" />
+    <Content Include="assets\codemirror-4.6\mode\properties\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\properties\properties.js" />
+    <Content Include="assets\codemirror-4.6\mode\puppet\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\puppet\puppet.js" />
+    <Content Include="assets\codemirror-4.6\mode\python\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\python\python.js" />
+    <Content Include="assets\codemirror-4.6\mode\q\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\q\q.js" />
+    <Content Include="assets\codemirror-4.6\mode\rpm\changes\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\rpm\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\rpm\rpm.js" />
+    <Content Include="assets\codemirror-4.6\mode\rst\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\rst\rst.js" />
+    <Content Include="assets\codemirror-4.6\mode\ruby\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\ruby\ruby.js" />
+    <Content Include="assets\codemirror-4.6\mode\ruby\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\rust\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\rust\rust.js" />
+    <Content Include="assets\codemirror-4.6\mode\r\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\r\r.js" />
+    <Content Include="assets\codemirror-4.6\mode\sass\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\sass\sass.js" />
+    <Content Include="assets\codemirror-4.6\mode\scheme\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\scheme\scheme.js" />
+    <Content Include="assets\codemirror-4.6\mode\shell\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\shell\shell.js" />
+    <Content Include="assets\codemirror-4.6\mode\shell\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\sieve\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\sieve\sieve.js" />
+    <Content Include="assets\codemirror-4.6\mode\slim\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\slim\slim.js" />
+    <Content Include="assets\codemirror-4.6\mode\slim\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\smalltalk\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\smalltalk\smalltalk.js" />
+    <Content Include="assets\codemirror-4.6\mode\smartymixed\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\smartymixed\smartymixed.js" />
+    <Content Include="assets\codemirror-4.6\mode\smarty\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\smarty\smarty.js" />
+    <Content Include="assets\codemirror-4.6\mode\solr\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\solr\solr.js" />
+    <Content Include="assets\codemirror-4.6\mode\sparql\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\sparql\sparql.js" />
+    <Content Include="assets\codemirror-4.6\mode\sql\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\sql\sql.js" />
+    <Content Include="assets\codemirror-4.6\mode\stex\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\stex\stex.js" />
+    <Content Include="assets\codemirror-4.6\mode\stex\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\tcl\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\tcl\tcl.js" />
+    <Content Include="assets\codemirror-4.6\mode\tiddlywiki\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="assets\codemirror-4.6\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="assets\codemirror-4.6\mode\tiki\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\tiki\tiki.css" />
+    <Content Include="assets\codemirror-4.6\mode\tiki\tiki.js" />
+    <Content Include="assets\codemirror-4.6\mode\toml\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\toml\toml.js" />
+    <Content Include="assets\codemirror-4.6\mode\turtle\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\turtle\turtle.js" />
+    <Content Include="assets\codemirror-4.6\mode\vbscript\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\vbscript\vbscript.js" />
+    <Content Include="assets\codemirror-4.6\mode\vb\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\vb\vb.js" />
+    <Content Include="assets\codemirror-4.6\mode\velocity\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\velocity\velocity.js" />
+    <Content Include="assets\codemirror-4.6\mode\verilog\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\verilog\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\verilog\verilog.js" />
+    <Content Include="assets\codemirror-4.6\mode\xml\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\xml\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\xml\xml.js" />
+    <Content Include="assets\codemirror-4.6\mode\xquery\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\xquery\test.js" />
+    <Content Include="assets\codemirror-4.6\mode\xquery\xquery.js" />
+    <Content Include="assets\codemirror-4.6\mode\yaml\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\yaml\yaml.js" />
+    <Content Include="assets\codemirror-4.6\mode\z80\index.html" />
+    <Content Include="assets\codemirror-4.6\mode\z80\z80.js" />
+    <Content Include="assets\codemirror-4.6\test\comment_test.js" />
+    <Content Include="assets\codemirror-4.6\test\doc_test.js" />
+    <Content Include="assets\codemirror-4.6\test\driver.js" />
+    <Content Include="assets\codemirror-4.6\test\emacs_test.js" />
+    <Content Include="assets\codemirror-4.6\test\index.html" />
+    <Content Include="assets\codemirror-4.6\test\lint\acorn.js" />
+    <Content Include="assets\codemirror-4.6\test\lint\lint.js" />
+    <Content Include="assets\codemirror-4.6\test\lint\walk.js" />
+    <Content Include="assets\codemirror-4.6\test\mode_test.css" />
+    <Content Include="assets\codemirror-4.6\test\mode_test.js" />
+    <Content Include="assets\codemirror-4.6\test\multi_test.js" />
+    <Content Include="assets\codemirror-4.6\test\phantom_driver.js" />
+    <Content Include="assets\codemirror-4.6\test\run.js" />
+    <Content Include="assets\codemirror-4.6\test\search_test.js" />
+    <Content Include="assets\codemirror-4.6\test\sublime_test.js" />
+    <Content Include="assets\codemirror-4.6\test\test.js" />
+    <Content Include="assets\codemirror-4.6\test\vim_test.js" />
+    <Content Include="assets\codemirror-4.6\theme\3024-day.css" />
+    <Content Include="assets\codemirror-4.6\theme\3024-night.css" />
+    <Content Include="assets\codemirror-4.6\theme\ambiance-mobile.css" />
+    <Content Include="assets\codemirror-4.6\theme\ambiance.css" />
+    <Content Include="assets\codemirror-4.6\theme\base16-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\base16-light.css" />
+    <Content Include="assets\codemirror-4.6\theme\blackboard.css" />
+    <Content Include="assets\codemirror-4.6\theme\cobalt.css" />
+    <Content Include="assets\codemirror-4.6\theme\eclipse.css" />
+    <Content Include="assets\codemirror-4.6\theme\elegant.css" />
+    <Content Include="assets\codemirror-4.6\theme\erlang-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\lesser-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\mbo.css" />
+    <Content Include="assets\codemirror-4.6\theme\mdn-like.css" />
+    <Content Include="assets\codemirror-4.6\theme\midnight.css" />
+    <Content Include="assets\codemirror-4.6\theme\monokai.css" />
+    <Content Include="assets\codemirror-4.6\theme\neat.css" />
+    <Content Include="assets\codemirror-4.6\theme\neo.css" />
+    <Content Include="assets\codemirror-4.6\theme\night.css" />
+    <Content Include="assets\codemirror-4.6\theme\paraiso-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\paraiso-light.css" />
+    <Content Include="assets\codemirror-4.6\theme\pastel-on-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\rubyblue.css" />
+    <Content Include="assets\codemirror-4.6\theme\solarized.css" />
+    <Content Include="assets\codemirror-4.6\theme\the-matrix.css" />
+    <Content Include="assets\codemirror-4.6\theme\tomorrow-night-eighties.css" />
+    <Content Include="assets\codemirror-4.6\theme\twilight.css" />
+    <Content Include="assets\codemirror-4.6\theme\vibrant-ink.css" />
+    <Content Include="assets\codemirror-4.6\theme\xq-dark.css" />
+    <Content Include="assets\codemirror-4.6\theme\xq-light.css" />
+    <Content Include="icon_ytvl_32px.png" />
+    <Content Include="ItemLayoutCss.html" />
+    <Content Include="Edit.ascx" />
+    <Content Include="License.txt" />
+    <Content Include="module.css" />
+    <Content Include="ReleaseNotes.txt" />
+    <Content Include="Settings.ascx" />
+    <Content Include="TemplateManager.ascx" />
+    <Content Include="ItemLayoutTemplate.html" />
+    <Content Include="View.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DnnC_YouTubeLibrary.dnn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.resx" />
+    <Content Include="App_LocalResources\Settings.ascx.resx" />
+    <Content Include="App_LocalResources\View.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildScripts\ModulePackage.targets" />
+    <Content Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Providers\DataProviders\SqlDataProvider\UnInstall.sqldataprovider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\TemplateManager.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\codemirror-4.6\bin\authors.sh" />
+    <Content Include="assets\codemirror-4.6\bin\compress" />
+    <Content Include="assets\codemirror-4.6\bin\lint" />
+    <Content Include="assets\codemirror-4.6\bin\release" />
+    <Content Include="assets\codemirror-4.6\bin\source-highlight" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Providers\DataProviders\SqlDataProvider\01.00.00.sqldataprovider" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62640</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://dnndev.me/desktopmodules/DnnC_YouTubeLibrary</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://dnndev.me/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>DnnC_YouTubeLibrary</DNNFileName>
+    <PackageName>DnnC_YouTubeLibrary</PackageName>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\packages\MSBuildTasks.1.4.0.61\tools</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
+</Project>
