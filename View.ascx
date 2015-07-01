@@ -17,7 +17,8 @@
         <ItemTemplate></ItemTemplate>
     </asp:DataList>
     <dnn:pagingcontrol id=ctlPagingControl runat="server"></dnn:pagingcontrol>
-</div><!-- End Video List -->
+</div>
+<!-- End Video List -->
 
 <asp:Panel ID="panelAdmin" runat="server" Visible="false">
     <asp:LinkButton ID="btnAddNew" runat="server" resourcekey="cmdAdminAdd" CssClass="dnnPrimaryAction" />

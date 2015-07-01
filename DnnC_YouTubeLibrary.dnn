@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="DnnC_YouTubeLibrary" type="Module" version="02.00.00">
+    <package name="DnnC_YouTubeLibrary" type="Module" version="02.00.01">
       <friendlyName>DnnC_YouTubeLibrary</friendlyName>
       <description>
         <p>The DnnC YouTube Library makes it a breeze to build a library of YouTube videos for you DnnCMS website.</p>

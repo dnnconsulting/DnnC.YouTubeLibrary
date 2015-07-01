@@ -8,7 +8,7 @@
 <div class="License">
 	<h3>About the DnnC YouTubeLibrary</h3>
 	<p class="Owner">
-		<b>Version 02.00.00</b><br /><br />
+		<b>Version 02.00.01</b><br /><br />
 	</p>
 	<p>
 		The DnnC YouTube Library makes it a breeze to build a library of YouTube videos for you DnnCMS website.
@@ -29,6 +29,7 @@
 	
 	<h4>Bug Fixes</h4>
 	<ul>
+			<li>Small updates contributed By Horacio Judeikin (Evotiva.com) - A big thank you!</li>
 			<li>Updated the module to use the youtube api v3, v2 was made obsolate!</li>
 			<li>Styled the editable video list with standard Dnn icons and add a white background panel for clarity.</li>
 			<li>Made the videoId textbox bigger.</li>

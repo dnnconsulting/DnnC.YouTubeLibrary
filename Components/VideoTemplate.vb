@@ -36,7 +36,7 @@ Public Class VideoTemplate
                    videoSize As String, _
                    showTitle As Boolean, _
                    suggestedVideos As Boolean, _
-                   ShowControls As Boolean)
+                   showControls As Boolean)
 
         _aryTemplate = ParseTemplateText(templateText)
         _moduleID = moduleId
@@ -46,7 +46,7 @@ Public Class VideoTemplate
         _videoSize = videoSize
         _suggestedVideos = suggestedVideos
         _showTitle = showTitle
-        _showControls = ShowControls
+        _showControls = showControls
         _nestedLevel = New ArrayList
         _nestedLevel.Add(True)
     End Sub
@@ -187,9 +187,11 @@ Public Class VideoTemplate
         Dim vStr As StringBuilder = New StringBuilder
         vStr.AppendLine("<div class=""videoWrapper"">")
         vStr.Append("<iframe type=""text/html"" width=""560"" height=""349"" ")
-        vStr.Append("src=""http://www.youtube.com/embed/" & DataBinder.Eval(container.DataItem, "VideoId"))
-        vStr.Append("?autoplay=0"" ")
-        vStr.Append("frameborder=""0""></iframe>")
+        vStr.Append("src=""http://www.youtube.com/embed/" & DataBinder.Eval(container.DataItem, "VideoId") & "")
+        vStr.Append(" autoplay=""0"" ")
+        vStr.Append(" frameborder=""0"" ")
+        vStr.Append(" allowfullscreen=""1"" ")
+        vStr.Append("></iframe>")
         vStr.AppendLine("</div>")
 
         lc.Text = vStr.ToString
@@ -217,22 +219,45 @@ Public Class VideoTemplate
         Dim vStr As StringBuilder = New StringBuilder
         vStr.Append("<a href=""http://www.youtube.com/watch?v=" & DataBinder.Eval(container.DataItem, "VideoId") & "")
 
-        If Not _suggestedVideos Then
-            vStr.Append("?rel=0")
+        If vStr.ToString.Contains("?") Then
             cnt = cnt + 1
         End If
 
+        If Not _suggestedVideos Then
+            If Not vStr.ToString.Contains("rel=") Then   ' I don't know why/how "rel=0" was already in the URL
+                If cnt > 0 Then
+                    vStr.Append("&amp;rel=0")
+                Else : vStr.Append("?rel=0")
+                End If
+                cnt = cnt + 1
+            End If
+        End If
+
+        Dim _allowfullscreen As Boolean = True
+        If _allowfullscreen Then
+            If Not vStr.ToString.Contains("allowfullscreen=") Then
+                If cnt > 0 Then
+                    vStr.Append("&amp;allowfullscreen=1")
+                Else : vStr.Append("?allowfullscreen=1")
+                End If
+            End If
+        End If
+
         If Not _showControls Then
-            If cnt > 0 Then
-                vStr.Append("&amp;controls=0")
-            Else : vStr.Append("?controls=0")
+            If Not vStr.ToString.Contains("controls=") Then
+                If cnt > 0 Then
+                    vStr.Append("&amp;controls=0")
+                Else : vStr.Append("?controls=0")
+                End If
             End If
         End If
 
         If Not _showTitle Then
-            If cnt > 0 Then
-                vStr.Append("&amp;showinfo=0")
-            Else : vStr.Append("?showinfo=0")
+            If Not vStr.ToString.Contains("showinfo=") Then
+                If cnt > 0 Then
+                    vStr.Append("&amp;showinfo=0")
+                Else : vStr.Append("?showinfo=0")
+                End If
             End If
         End If
         vStr.Append("""")
